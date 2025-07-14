@@ -1,0 +1,75 @@
+import 'package:flutter/material.dart';
+import 'package:todoapp/screens/tasks.dart';
+import 'package:todoapp/classrenk.dart';
+
+final TextEditingController titlecontroller = TextEditingController();
+final TextEditingController descriptioncontroller = TextEditingController();
+final TextEditingController datecontroller = TextEditingController();
+
+class Newtasks extends StatefulWidget {
+  const Newtasks({super.key});
+
+  @override
+  State<Newtasks> createState() => _NewtasksState();
+}
+
+class _NewtasksState extends State<Newtasks> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.15,
+        title: Column(
+          children: [
+            SizedBox(width: MediaQuery.of(context).size.width * 0.15),
+            Center(
+              child: Text(
+                'Welcome back!',
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
+          Ortaksinif(
+            child: TextFormField(
+              controller: descriptioncontroller,
+              decoration: InputDecoration(labelText: 'title'),
+            ),
+          ),
+          sizedbox(),
+          Ortaksinif(
+            child: TextFormField(
+              controller: titlecontroller,
+              decoration: InputDecoration(labelText: 'description'),
+            ),
+          ),
+          sizedbox(),
+
+          Datesec(),
+          sizedbox(),
+          Ortaksinif(child: DropdownMenuExample()),
+          sizedbox(),
+          Row(children: [chipbox(), Chipapp()]),
+          sizedbox(),
+          Butonsinif(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Tasks()),
+                );
+              },
+              child: Text('save task '),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
