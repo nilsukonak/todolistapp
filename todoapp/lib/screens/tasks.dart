@@ -73,7 +73,7 @@ class _TasksState extends State<Tasks> {
             children: [
               Row(
                 children: [
-                  chipbox(),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                   Chipapp(
                     //sayfa kontrolleri
                     prioritycont: TextEditingController(),

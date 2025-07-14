@@ -38,6 +38,21 @@ class Ortaksinif extends StatelessWidget {
   }
 }
 
+/*
+//butonlarn arasındaki bosluk
+class sizedbox extends StatelessWidget {
+  final double? height;
+
+  const sizedbox({Key? key, this.height}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+    );
+  }
+}
+*/
 //BUTONLAR
 class Butonsinif extends StatelessWidget {
   final Widget child;
@@ -160,6 +175,19 @@ class _DatesecState extends State<Datesec> {
         borderRadius: BorderRadius.circular(15),
       ),
     );
+  }
+}
+
+//chipler aarsı bosluk
+
+class chipbox extends StatelessWidget {
+  final double? width;
+
+  const chipbox({Key? key, this.width}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(width: width ?? MediaQuery.of(context).size.width * 0.02);
   }
 }
 
